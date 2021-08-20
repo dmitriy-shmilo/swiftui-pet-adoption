@@ -15,7 +15,7 @@ struct DetailsBodyView: View {
 					.font(.system(size: 40, weight: .bold, design: .rounded))
 					.foregroundColor(.white)
 					.padding(.top, 120)
-				Image("puppy1")
+				Image("Puppy1")
 					.resizable()
 					.offset(x: 60, y: 50)
 					.scaledToFit()
@@ -28,12 +28,13 @@ struct DetailsBodyView: View {
 				Image("Location")
 					.resizable()
 					.scaledToFit()
+					.foregroundColor(.pinkBackground)
 					.frame(width: 25, height:25)
 					.padding(.leading, 30)
 				
 				Text("Odesa, Ukraine, 1.5km away")
 					.font(.system(size: 16))
-					.foregroundColor(.secondaryFontColor)
+					.foregroundColor(.secondaryFont)
 				Spacer()
 			}
 			
@@ -43,21 +44,21 @@ struct DetailsBodyView: View {
 						Image("Breed")
 							.resizable()
 							.renderingMode(.template)
-							.foregroundColor(Color(#colorLiteral(red: 0.6801000834, green: 0.5969728231, blue: 0.1984284222, alpha: 1)))
+							.foregroundColor(.yellowForeground)
 							.frame(width: 16, height: 16)
 							.padding(7)
 							.background(
 								RoundedRectangle(cornerRadius: 5)
-									.foregroundColor(Color(#colorLiteral(red: 1, green: 0.8699016571, blue: 0.5112748742, alpha: 1)).opacity(0.3))
+									.foregroundColor(.yellowBackground.opacity(0.3))
 							)
 						Text("Breed")
-							.foregroundColor(.fontColor)
+							.foregroundColor(.font)
 							.font(
 								.system(size: 20, weight: .medium, design: .rounded)
 							)
 					}
 					Text("Probably Maltese")
-						.foregroundColor(.fontColor)
+						.foregroundColor(.font)
 						.font(
 							.system(size: 16, weight: .regular, design: .rounded)
 						)
@@ -70,21 +71,21 @@ struct DetailsBodyView: View {
 						Image("Gender")
 							.resizable()
 							.renderingMode(.template)
-							.foregroundColor(Color(#colorLiteral(red: 0.4534034729, green: 0.2965269387, blue: 0.3135575652, alpha: 1)))
+							.foregroundColor(.pinkForeground)
 							.frame(width: 16, height: 16)
 							.padding(7)
 							.background(
 								RoundedRectangle(cornerRadius: 5)
-									.foregroundColor(Color(#colorLiteral(red: 0.9935080409, green: 0.646912992, blue: 0.6816377044, alpha: 1)).opacity(0.3))
+									.foregroundColor(.pinkBackground.opacity(0.3))
 							)
 						Text("Gender")
-							.foregroundColor(.fontColor)
+							.foregroundColor(.font)
 							.font(
 								.system(size: 20, weight: .medium, design: .rounded)
 							)
 					}
 					Text("Male")
-						.foregroundColor(.fontColor)
+						.foregroundColor(.font)
 						.font(
 							.system(size: 16, weight: .regular, design: .rounded)
 						)
@@ -94,11 +95,11 @@ struct DetailsBodyView: View {
 			}
 			
 			Text("Boots is probably a maltese or australian shepherd, at least that's what online dog breed recognition tool told me. Named after Boots from \"Thy Servant a Dog\" by Rudyard Kipling.")
-				.foregroundColor(.secondaryFontColor)
+				.foregroundColor(.secondaryFont)
 				.font(
 					.system(size: 16, weight: .regular, design: .rounded)
 				)
-				.padding(.leading, 30)
+				.padding(.horizontal, 30)
 				.padding(.top)
 			HStack(spacing: 10) {
 				Image("Puppy1-1")

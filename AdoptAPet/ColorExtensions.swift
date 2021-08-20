@@ -8,15 +8,31 @@
 import SwiftUI
 
 extension Color {
-	static var fontColor: Color {
-		Color("FontColor")
+	static var font: Color {
+		Color("Font")
 	}
 	
-	static var secondaryFontColor: Color {
-		Color("SecondaryFontColor")
+	static var secondaryFont: Color {
+		Color("SecondaryFont")
 	}
 	
-	static var panelBackgroundColor: Color {
-		Color("PanelBackgroundColor")
+	static var panelBackground: Color {
+		Color("PanelBackground")
+	}
+	
+	static var yellowBackground: Color {
+		Color("YellowBackground")
+	}
+	
+	static var pinkBackground: Color {
+		Color("PinkBackground")
+	}
+	
+	static var yellowForeground: Color {
+		Color("YellowForeground")
+	}
+	
+	static var pinkForeground: Color {
+		Color("PinkForeground")
 	}
 }

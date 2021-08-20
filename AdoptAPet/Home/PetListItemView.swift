@@ -20,7 +20,7 @@ struct PetListItemView: View {
 				.frame(width: 50, height: 50)
 				.shadow(color: .accentColor, radius: 10, x: 0, y: 0)
 			RoundedRectangle(cornerRadius: 15)
-				.foregroundColor(Color.panelBackgroundColor)
+				.foregroundColor(Color.panelBackground)
 				.padding(.top, 50)
 			
 			Image(systemName: "chevron.right")

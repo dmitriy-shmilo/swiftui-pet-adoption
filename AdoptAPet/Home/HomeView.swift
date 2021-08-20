@@ -26,7 +26,7 @@ struct HomeView: View {
 					HStack {
 						Text("Location")
 							.font(.headline)
-							.foregroundColor(Color.secondaryFontColor)
+							.foregroundColor(Color.secondaryFont)
 							.multilineTextAlignment(.leading)
 							.frame(alignment:.leading)
 						Spacer()
@@ -35,16 +35,17 @@ struct HomeView: View {
 					.padding(.top, 10)
 					
 					HStack {
-						Image(systemName:"location.circle.fill")
-							.foregroundColor(Color(#colorLiteral(red: 0.9931250215, green: 0.562638998, blue: 0.6007267237, alpha: 1)))
-							.font(.system(size: 30))
-							.rotationEffect(Angle(degrees: 45))
+						Image("Location")
+							.resizable()
+							.scaledToFit()
+							.foregroundColor(.pinkBackground)
+							.frame(width: 30, height: 30)
 						Text("California,")
 							.font(.system(size: 40, weight: .semibold, design: .default))
-							.foregroundColor(Color.fontColor)
+							.foregroundColor(Color.font)
 						Text("US")
 							.font(.system(size: 40, weight: .regular, design: .default))
-							.foregroundColor(Color.fontColor)
+							.foregroundColor(Color.font)
 						Spacer()
 					}
 					.padding(.horizontal, 25)
@@ -85,11 +86,11 @@ struct HomeView: View {
 					}
 					
 					NavigationLink(destination:DetailsView()) {
-						PetListItemView(petImageName: "puppy1", mapColor: Color(#colorLiteral(red: 1, green: 0.8699016571, blue: 0.5112748742, alpha: 1)).opacity(0.3))
+						PetListItemView(petImageName: "Puppy1", mapColor: .yellowBackground.opacity(0.3))
 					}
 					
 					NavigationLink(destination:DetailsView()) {
-						PetListItemView(petImageName: "puppy2", mapColor: Color(#colorLiteral(red: 0.9935080409, green: 0.646912992, blue: 0.6816377044, alpha: 1)).opacity(0.3))
+						PetListItemView(petImageName: "Puppy2", mapColor: .pinkBackground.opacity(0.3))
 					}
 				}
 			}

@@ -14,10 +14,10 @@ struct CategoryButtonStyle: ButtonStyle {
 	func makeBody(configuration: Self.Configuration) -> some View {
 		let backgroundColor = isActive
 			? Color.accentColor
-			: Color.panelBackgroundColor
+			: Color.panelBackground
 		let foreGroundColor = isActive
 			? Color.white
-			: Color.fontColor
+			: Color.font
 		
 		return configuration.label
 			.font(.system(size: 11))
