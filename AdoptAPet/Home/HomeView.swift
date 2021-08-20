@@ -13,13 +13,29 @@ struct HomeView: View {
 			ScrollView {
 				VStack {
 					HStack {
-						Image(systemName:"person.circle.fill")
-							.foregroundColor(.yellow)
-							.font(.system(size: 40))
+						Button(action: {}) {
+							Image("Profile")
+								.resizable()
+								.frame(width: 40, height: 40)
+								.overlay(
+									RadialGradient(
+										gradient: Gradient(
+											colors: [
+												.black.opacity(0), .black.opacity(0.3)
+											]),
+										center: .center,
+										startRadius: 10,
+										endRadius: 25
+									)
+								)
+								.clipShape(Circle())
+						}
 						Spacer()
-						Image(systemName:"square.grid.2x2")
-							.foregroundColor(Color.accentColor)
-							.font(.system(size: 20))
+						Button(action: {}) {
+							Image(systemName:"square.grid.2x2")
+								.foregroundColor(Color.accentColor)
+								.font(.system(size: 20))
+						}
 					}
 					.padding(.horizontal, 25)
 					
@@ -40,10 +56,10 @@ struct HomeView: View {
 							.scaledToFit()
 							.foregroundColor(.pinkBackground)
 							.frame(width: 30, height: 30)
-						Text("California,")
+						Text("Odesa,")
 							.font(.system(size: 40, weight: .semibold, design: .default))
 							.foregroundColor(Color.font)
-						Text("US")
+						Text("Ukraine")
 							.font(.system(size: 40, weight: .regular, design: .default))
 							.foregroundColor(Color.font)
 						Spacer()
@@ -53,10 +69,11 @@ struct HomeView: View {
 					
 					ScrollView (.horizontal, showsIndicators: false) {
 						HStack(spacing: 25) {
-							Image(systemName: "slider.horizontal.3")
-								.foregroundColor(Color.accentColor)
-								.font(.system(size: 20))
-							
+							Button(action: {}) {
+								Image(systemName: "slider.horizontal.3")
+									.foregroundColor(Color.accentColor)
+									.font(.system(size: 20))
+							}
 							
 							Button(action: {}) {
 								Text("Cats")
@@ -86,11 +103,11 @@ struct HomeView: View {
 					}
 					
 					NavigationLink(destination:DetailsView()) {
-						PetListItemView(petImageName: "Puppy1", mapColor: .yellowBackground.opacity(0.3))
+						PetListItemView(petImageName: "Puppy1", mapColor: .yellowBackground.opacity(0.5))
 					}
 					
 					NavigationLink(destination:DetailsView()) {
-						PetListItemView(petImageName: "Puppy2", mapColor: .pinkBackground.opacity(0.3))
+						PetListItemView(petImageName: "Puppy2", mapColor: .pinkBackground.opacity(0.5))
 					}
 				}
 			}
