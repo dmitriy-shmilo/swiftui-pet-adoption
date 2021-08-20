@@ -2,8 +2,10 @@
 
 SwiftUI implementation of [Pet Adoption App](https://dribbble.com/shots/14380227-Pets-Adoption-App) design by [Nadya Lazurenko](https://dribbble.com/NadyaLazurenko) from dribbble.com.
 
-![Home View](Screenshots/HomeView.png)
-![Details View](Screenshots/DetailsView.png)
+<p style="float: left">
+  <img src="Screenshots/HomeView.png" alt="Home View" width="300"/>
+  <img src="Screenshots/DetailsView.png" alt="Details View" width="300"/>
+</p>
 
 # Image Credits: #
 
