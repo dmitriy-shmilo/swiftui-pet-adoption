@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DetailsView: View {
+	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
 	var body: some View {
 		ZStack {
 			ScrollView {
@@ -22,6 +24,19 @@ struct DetailsView: View {
 			.ignoresSafeArea()
 			
 			VStack {
+				HStack {
+					Button(action: {
+						presentationMode.wrappedValue.dismiss()
+					}) {
+						Image(systemName: "chevron.left.circle.fill")
+							.resizable()
+							.foregroundColor(.white)
+							.scaledToFit()
+							.frame(width: 30, height: 30)
+					}
+					.padding()
+					Spacer()
+				}
 				Spacer()
 				Button(action: {}) {
 					Text("Adopt Now")
@@ -33,6 +48,7 @@ struct DetailsView: View {
 				.buttonStyle(ActionButtonStyle())
 			}
 		}
+		.navigationBarHidden(true)
 	}
 }
 
