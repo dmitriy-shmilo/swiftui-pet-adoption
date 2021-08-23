@@ -22,6 +22,10 @@
 		5DD5EFF426CEFD46009E341B /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD5EFF326CEFD46009E341B /* ColorExtensions.swift */; };
 		5DD5EFF726CEFD98009E341B /* RoundedCornersShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD5EFF626CEFD98009E341B /* RoundedCornersShape.swift */; };
 		5DD5EFF926CEFE25009E341B /* CategoryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD5EFF826CEFE25009E341B /* CategoryButtonStyle.swift */; };
+		5DF4001826D4309D000143F0 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001726D4309D000143F0 /* Pet.swift */; };
+		5DF4001A26D43208000143F0 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001926D43208000143F0 /* Gender.swift */; };
+		5DF4001C26D4320F000143F0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001B26D4320F000143F0 /* Location.swift */; };
+		5DF4001E26D4322C000143F0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001D26D4322C000143F0 /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		5DD5EFF326CEFD46009E341B /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		5DD5EFF626CEFD98009E341B /* RoundedCornersShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersShape.swift; sourceTree = "<group>"; };
 		5DD5EFF826CEFE25009E341B /* CategoryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonStyle.swift; sourceTree = "<group>"; };
+		5DF4001726D4309D000143F0 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		5DF4001926D43208000143F0 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		5DF4001B26D4320F000143F0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5DF4001D26D4322C000143F0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 				5D0BE5F026CED821009E9336 /* Assets.xcassets */,
 				5DCA271B26CFF99400E3AB5B /* Details */,
 				5DD5EFF226CEFD29009E341B /* Home */,
+				5DF4001626D4308F000143F0 /* Model */,
 				5D0BE5F226CED821009E9336 /* Preview Content */,
 			);
 			path = AdoptAPet;
@@ -116,6 +125,17 @@
 				5DCA272226D025DD00E3AB5B /* ToolbarView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		5DF4001626D4308F000143F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5DF4001726D4309D000143F0 /* Pet.swift */,
+				5DF4001926D43208000143F0 /* Gender.swift */,
+				5DF4001B26D4320F000143F0 /* Location.swift */,
+				5DF4001D26D4322C000143F0 /* ModelData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,13 +207,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF4001E26D4322C000143F0 /* ModelData.swift in Sources */,
 				5DCA272326D025DD00E3AB5B /* ToolbarView.swift in Sources */,
 				5DD5EFF726CEFD98009E341B /* RoundedCornersShape.swift in Sources */,
+				5DF4001C26D4320F000143F0 /* Location.swift in Sources */,
 				5DCA272126CFFBA700E3AB5B /* DetailsBodyView.swift in Sources */,
 				5DD5EFEF26CEFC8A009E341B /* HomeView.swift in Sources */,
 				5DCA272526D025F500E3AB5B /* FiltersView.swift in Sources */,
 				5DD5EFF426CEFD46009E341B /* ColorExtensions.swift in Sources */,
+				5DF4001A26D43208000143F0 /* Gender.swift in Sources */,
 				5D0BE5EF26CED81D009E9336 /* ContentView.swift in Sources */,
+				5DF4001826D4309D000143F0 /* Pet.swift in Sources */,
 				5D0BE5ED26CED81D009E9336 /* AdoptAPetApp.swift in Sources */,
 				5DCA271D26CFF9A800E3AB5B /* DetailsView.swift in Sources */,
 				5DD5EFF926CEFE25009E341B /* CategoryButtonStyle.swift in Sources */,
