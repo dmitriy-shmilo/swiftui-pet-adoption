@@ -16,18 +16,19 @@ struct HomeView: View {
 					
 					LocationHeaderView()
 					
-					
-					
 					ScrollView (.horizontal, showsIndicators: false) {
 						FiltersView()
 					}
 					
-					NavigationLink(destination:DetailsView()) {
-						PetListItemView(petImageName: "Puppy1", mapColor: .yellowBackground.opacity(0.5))
-					}
-					
-					NavigationLink(destination:DetailsView()) {
-						PetListItemView(petImageName: "Puppy2", mapColor: .pinkBackground.opacity(0.5))
+					ForEach(ModelData.pets.indices) { i in
+						let pet = ModelData.pets[i]
+						NavigationLink(destination:DetailsView(pet: pet)) {
+							PetListItemView(
+								petImageName: pet.picture,
+								mapColor: (i.isMultiple(of: 2)
+								? Color.yellowBackground
+								: Color.pinkBackground).opacity(0.5))
+						}
 					}
 				}
 			}

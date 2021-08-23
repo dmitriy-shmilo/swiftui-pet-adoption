@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct DetailsBodyView: View {
+	let pet: Pet
+	
 	var body: some View {
+		let currentLocation = Location(lat: 10.01, lon: 10.0)
+
 		VStack {
 			HStack(alignment:.top) {
-				Text("Boots")
+				Text(pet.name)
 					.font(.system(size: 40, weight: .bold, design: .rounded))
 					.foregroundColor(.white)
 					.padding(.top, 120)
-				Image("Puppy1")
+				Image(pet.picture)
 					.resizable()
 					.offset(x: 60, y: 50)
 					.scaledToFit()
@@ -32,7 +36,8 @@ struct DetailsBodyView: View {
 					.frame(width: 25, height:25)
 					.padding(.leading, 30)
 				
-				Text("Odesa, Ukraine, 1.5km away")
+				let distance = currentLocation.distance(to: pet.location)
+				Text("\(pet.locationDescription), \(String(format:"%.2f", distance))km away")
 					.font(.system(size: 16))
 					.foregroundColor(.secondaryFont)
 				Spacer()
@@ -57,7 +62,7 @@ struct DetailsBodyView: View {
 								.system(size: 20, weight: .medium, design: .rounded)
 							)
 					}
-					Text("Probably Maltese")
+					Text(pet.breed)
 						.foregroundColor(.font)
 						.font(
 							.system(size: 16, weight: .regular, design: .rounded)
@@ -84,7 +89,7 @@ struct DetailsBodyView: View {
 								.system(size: 20, weight: .medium, design: .rounded)
 							)
 					}
-					Text("Male")
+					Text(pet.gender.rawValue)
 						.foregroundColor(.font)
 						.font(
 							.system(size: 16, weight: .regular, design: .rounded)
@@ -94,7 +99,7 @@ struct DetailsBodyView: View {
 				Spacer()
 			}
 			
-			Text("Boots is probably a maltese or australian shepherd, at least that's what online dog breed recognition tool told me. Named after Boots from \"Thy Servant a Dog\" by Rudyard Kipling.")
+			Text(pet.description)
 				.foregroundColor(.secondaryFont)
 				.font(
 					.system(size: 16, weight: .regular, design: .rounded)
@@ -102,21 +107,13 @@ struct DetailsBodyView: View {
 				.padding(.horizontal, 30)
 				.padding(.top)
 			HStack(spacing: 10) {
-				Image("Puppy1-1")
-					.resizable()
-					.scaledToFill()
-					.frame(width: 50, height: 50)
-					.clipShape(RoundedRectangle(cornerRadius: 15))
-				Image("Puppy1-2")
-					.resizable()
-					.scaledToFill()
-					.frame(width: 50, height: 50)
-					.clipShape(RoundedRectangle(cornerRadius: 15))
-				Image("Puppy1-3")
-					.resizable()
-					.scaledToFill()
-					.frame(width: 50, height: 50)
-					.clipShape(RoundedRectangle(cornerRadius: 15))
+				ForEach(pet.pictures, id: \.self) { picture in
+					Image(picture)
+						.resizable()
+						.scaledToFill()
+						.frame(width: 50, height: 50)
+						.clipShape(RoundedRectangle(cornerRadius: 15))
+				}
 				Spacer()
 			}
 			.padding(.leading, 30)

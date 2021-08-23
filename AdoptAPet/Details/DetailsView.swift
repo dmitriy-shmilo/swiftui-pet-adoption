@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailsView: View {
+	let pet: Pet
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
 	var body: some View {
@@ -18,7 +19,7 @@ struct DetailsView: View {
 					Image("DetailsBackground")
 						.resizable()
 						.scaledToFit()
-					DetailsBodyView()
+					DetailsBodyView(pet: pet)
 				}
 			}
 			.ignoresSafeArea()
@@ -54,6 +55,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView()
+        DetailsView(pet: ModelData.pets[0])
     }
 }
