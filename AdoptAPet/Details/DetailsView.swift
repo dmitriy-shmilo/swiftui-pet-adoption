@@ -11,18 +11,33 @@ struct DetailsView: View {
 	let pet: Pet
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
+	func backgroundHeight(proxy: GeometryProxy) -> CGFloat {
+		return max(0, 400 + proxy.frame(in: .global).minY)
+	}
+	
+	func backgroundOffset(proxy: GeometryProxy) -> CGFloat {
+		return -proxy.frame(in: .global).minY
+	}
+
 	var body: some View {
 		ZStack {
 			ScrollView {
-				ZStack(alignment: .top) {
-					Color.accentColor
-					Image("DetailsBackground")
-						.resizable()
-						.scaledToFit()
+				VStack(alignment: .center) {
+					GeometryReader { proxy in
+						Image("DetailsBackground")
+							.resizable()
+							.scaledToFill()
+							.frame(
+								width: proxy.size.width + 2,
+								height: backgroundHeight(proxy: proxy)
+							)
+							.offset(x: -1, y: backgroundOffset(proxy: proxy))
+					}
 					DetailsBodyView(pet: pet)
+						.padding(.top, -40)
 				}
 			}
-			.ignoresSafeArea()
+			.background(Color.accentColor.ignoresSafeArea())
 			
 			VStack {
 				HStack {

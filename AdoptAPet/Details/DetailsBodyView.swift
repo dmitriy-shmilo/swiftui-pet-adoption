@@ -106,6 +106,7 @@ struct DetailsBodyView: View {
 				)
 				.padding(.horizontal, 30)
 				.padding(.top)
+				.fixedSize(horizontal: false, vertical: true)
 			HStack(spacing: 10) {
 				ForEach(pet.pictures, id: \.self) { picture in
 					Image(picture)
