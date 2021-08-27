@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FiltersView: View {
+	@State var test = false
 	var body: some View {
 		HStack(spacing: 25) {
 			Button(action: {}) {
@@ -16,29 +17,25 @@ struct FiltersView: View {
 					.font(.system(size: 20))
 			}
 			
-			Button(action: {}) {
+			Toggle(isOn: .constant(false), label: {
 				Text("Cats")
-			}
-			.buttonStyle(CategoryButtonStyle())
+			})
+			.toggleStyle(CategoryToggleStyle())
 			
-			Button(action: {}) {
+			Toggle(isOn: .constant(true), label: {
 				Text("Dogs")
-			}
-			.buttonStyle(
-				CategoryButtonStyle(
-					isDisabled: false, isActive: true
-				)
-			)
+			})
+			.toggleStyle(CategoryToggleStyle())
 			
-			Button(action: {}) {
+			Toggle(isOn: .constant(false), label: {
 				Text("Birds")
-			}
-			.buttonStyle(CategoryButtonStyle())
+			})
+			.toggleStyle(CategoryToggleStyle())
 			
-			Button(action: {}) {
-				Text("Other").font(.system(size: 10))
-			}
-			.buttonStyle(CategoryButtonStyle())
+			Toggle(isOn: .constant(false), label: {
+				Text("Other")
+			})
+			.toggleStyle(CategoryToggleStyle())
 		}
 		.padding(.leading, 25)
 	}

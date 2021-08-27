@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct CategoryButtonStyle: ButtonStyle {
+struct CategoryToggleStyle: ToggleStyle {
 	let isDisabled: Bool
-	let isActive: Bool
 	
 	func makeBody(configuration: Self.Configuration) -> some View {
-		let backgroundColor = isActive
+		let backgroundColor = configuration.isOn
 			? Color.accentColor
 			: Color.panelBackground
-		let foreGroundColor = isActive
+		let foreGroundColor = configuration.isOn
 			? Color.white
 			: Color.font
 		
@@ -23,10 +22,10 @@ struct CategoryButtonStyle: ButtonStyle {
 			.font(.system(size: 11))
 			.padding(8)
 			.frame(width: 60, height:60)
-			.background(isDisabled || configuration.isPressed
+			.background(isDisabled
 							? backgroundColor.opacity(0.3)
 							: backgroundColor)
-			.foregroundColor(isDisabled || configuration.isPressed
+			.foregroundColor(isDisabled
 								? foreGroundColor.opacity(0.3)
 								: foreGroundColor)
 			.cornerRadius(15)
@@ -35,15 +34,20 @@ struct CategoryButtonStyle: ButtonStyle {
 					.stroke(Color.white, lineWidth: 2)
 			)
 			.shadow(
-				color: Color.accentColor.opacity(isActive ? 0.35 : 0),
+				color: Color.accentColor.opacity(configuration.isOn ? 0.35 : 0),
 				radius: 8, x: 0, y: 0)
 			.padding(.vertical, 12)
+			.onTapGesture {
+				if !isDisabled {
+					configuration.isOn.toggle()
+				}
+			}
+			.animation(.easeIn.speed(2.0))
 	}
 }
 
-extension CategoryButtonStyle {
+extension CategoryToggleStyle {
 	init() {
-		isActive = false
 		isDisabled = false
 	}
 }
