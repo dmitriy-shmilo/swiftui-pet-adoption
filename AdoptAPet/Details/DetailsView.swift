@@ -10,7 +10,8 @@ import SwiftUI
 struct DetailsView: View {
 	let pet: Pet
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+	@State var isAdopted = false
+	
 	func backgroundHeight(proxy: GeometryProxy) -> CGFloat {
 		return max(0, 400 + proxy.frame(in: .global).minY)
 	}
@@ -18,7 +19,7 @@ struct DetailsView: View {
 	func backgroundOffset(proxy: GeometryProxy) -> CGFloat {
 		return -proxy.frame(in: .global).minY
 	}
-
+	
 	var body: some View {
 		ZStack {
 			ScrollView {
@@ -40,6 +41,12 @@ struct DetailsView: View {
 			.background(Color.accentColor.ignoresSafeArea())
 			
 			VStack {
+				Spacer()
+					ParticleEmitterView(isEmitting: $isAdopted)
+						.frame(width: 100, height: 30)
+			}
+			
+			VStack {
 				HStack {
 					Button(action: {
 						presentationMode.wrappedValue.dismiss()
@@ -54,7 +61,13 @@ struct DetailsView: View {
 					Spacer()
 				}
 				Spacer()
-				Button(action: {}) {
+				Button(action: {
+					isAdopted = true
+					DispatchQueue.main.asyncAfter(
+						deadline: .now() + 0.5) {
+						isAdopted = false
+					}
+				}) {
 					Text("Adopt Now")
 						.font(.system(size: 18, weight: .bold, design: .rounded))
 						.padding()
@@ -69,7 +82,7 @@ struct DetailsView: View {
 }
 
 struct DetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailsView(pet: ModelData.pets[0])
-    }
+	static var previews: some View {
+		DetailsView(pet: ModelData.pets[0])
+	}
 }

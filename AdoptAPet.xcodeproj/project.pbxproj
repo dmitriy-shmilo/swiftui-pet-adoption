@@ -26,6 +26,7 @@
 		5DF4001A26D43208000143F0 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001926D43208000143F0 /* Gender.swift */; };
 		5DF4001C26D4320F000143F0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001B26D4320F000143F0 /* Location.swift */; };
 		5DF4001E26D4322C000143F0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4001D26D4322C000143F0 /* ModelData.swift */; };
+		5DF4006F26D93FF5000143F0 /* ParticleEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4006E26D93FF5000143F0 /* ParticleEmitterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		5DF4001926D43208000143F0 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		5DF4001B26D4320F000143F0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5DF4001D26D4322C000143F0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		5DF4006E26D93FF5000143F0 /* ParticleEmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEmitterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +109,10 @@
 		5DCA271B26CFF99400E3AB5B /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				5DCA271C26CFF9A800E3AB5B /* DetailsView.swift */,
 				5DCA271E26CFF9EA00E3AB5B /* ActionButtonStyle.swift */,
 				5DCA272026CFFBA700E3AB5B /* DetailsBodyView.swift */,
+				5DCA271C26CFF9A800E3AB5B /* DetailsView.swift */,
+				5DF4006E26D93FF5000143F0 /* ParticleEmitterView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				5DCA272726D0265700E3AB5B /* LocationHeaderView.swift in Sources */,
 				5DD5EFF126CEFCE5009E341B /* PetListItemView.swift in Sources */,
 				5DCA271F26CFF9EA00E3AB5B /* ActionButtonStyle.swift in Sources */,
+				5DF4006F26D93FF5000143F0 /* ParticleEmitterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
