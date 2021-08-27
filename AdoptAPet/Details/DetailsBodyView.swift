@@ -10,9 +10,12 @@ import SwiftUI
 struct DetailsBodyView: View {
 	let pet: Pet
 	
+	@State private var viewOffset: CGFloat = 100.0
+	@State private var viewOpacity: Double = 0.0
+	
 	var body: some View {
 		let currentLocation = Location(lat: 10.01, lon: 10.0)
-
+		
 		VStack {
 			HStack(alignment:.top) {
 				Text(pet.name)
@@ -36,12 +39,17 @@ struct DetailsBodyView: View {
 					.frame(width: 25, height:25)
 					.padding(.leading, 30)
 				
+				
 				let distance = currentLocation.distance(to: pet.location)
 				Text("\(pet.locationDescription), \(String(format:"%.2f", distance))km away")
 					.font(.system(size: 16))
 					.foregroundColor(.secondaryFont)
+				
 				Spacer()
 			}
+			.opacity(viewOpacity)
+			.offset(x: 0, y: viewOffset)
+			.animation(.easeOut(duration: 0.25))
 			
 			HStack(spacing: 30) {
 				VStack (alignment: .leading) {
@@ -98,6 +106,9 @@ struct DetailsBodyView: View {
 				}
 				Spacer()
 			}
+			.opacity(viewOpacity)
+			.offset(x: 0, y: viewOffset)
+			.animation(.easeOut(duration: 0.25).delay(0.25))
 			
 			Text(pet.description)
 				.foregroundColor(.secondaryFont)
@@ -107,6 +118,10 @@ struct DetailsBodyView: View {
 				.padding(.horizontal, 30)
 				.padding(.top)
 				.fixedSize(horizontal: false, vertical: true)
+				.opacity(viewOpacity)
+				.offset(x: 0, y: viewOffset)
+				.animation(.easeOut(duration: 0.25).delay(0.5))
+			
 			HStack(spacing: 10) {
 				ForEach(pet.pictures, id: \.self) { picture in
 					Image(picture)
@@ -119,11 +134,20 @@ struct DetailsBodyView: View {
 			}
 			.padding(.leading, 30)
 			.padding(.top, 20)
+			.opacity(viewOpacity)
+			.offset(x: 0, y: viewOffset)
+			.animation(.easeOut(duration: 0.25).delay(0.75))
 		}
 		.background(
 			RoundedRectangle(cornerRadius: 25)
 				.foregroundColor(.white)
 				.offset(x: 0, y: 360)
 		)
+		.onAppear {
+			withAnimation {
+				viewOpacity = 1.0
+				viewOffset = 0.0
+			}
+		}
 	}
 }
