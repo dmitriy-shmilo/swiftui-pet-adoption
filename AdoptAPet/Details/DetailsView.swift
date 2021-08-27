@@ -10,7 +10,8 @@ import SwiftUI
 struct DetailsView: View {
 	let pet: Pet
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-	@State var isAdopted = false
+	@State var isEmttingConfetti = false
+	@State var isShowingConfirmation = false
 	
 	func backgroundHeight(proxy: GeometryProxy) -> CGFloat {
 		return max(0, 400 + proxy.frame(in: .global).minY)
@@ -42,7 +43,7 @@ struct DetailsView: View {
 			
 			VStack {
 				Spacer()
-					ParticleEmitterView(isEmitting: $isAdopted)
+					ParticleEmitterView(isEmitting: $isEmttingConfetti)
 						.frame(width: 100, height: 30)
 			}
 			
@@ -62,10 +63,11 @@ struct DetailsView: View {
 				}
 				Spacer()
 				Button(action: {
-					isAdopted = true
+					isEmttingConfetti = true
+					isShowingConfirmation = true
 					DispatchQueue.main.asyncAfter(
 						deadline: .now() + 0.5) {
-						isAdopted = false
+						isEmttingConfetti = false
 					}
 				}) {
 					Text("Adopt Now")
@@ -76,6 +78,10 @@ struct DetailsView: View {
 				.padding(.horizontal, 30)
 				.buttonStyle(ActionButtonStyle())
 			}
+		}
+		.alert(isPresented: $isShowingConfirmation) {
+			Alert(title: Text("Thank you!"),
+				  message: Text("\(pet.name) is on \(pet.gender == .female ? "her" : "his") way!"))
 		}
 		.navigationBarHidden(true)
 	}
