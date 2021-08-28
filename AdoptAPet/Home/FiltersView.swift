@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FiltersView: View {
-	@State var test = false
+	@State var selectedSpecies = Species.dog
+	
 	var body: some View {
 		HStack(spacing: 25) {
 			Button(action: {}) {
@@ -17,32 +18,40 @@ struct FiltersView: View {
 					.font(.system(size: 20))
 			}
 			
-			Toggle(isOn: .constant(false), label: {
+			Toggle(isOn: .constant(selectedSpecies == .cat), label: {
 				Text("Cats")
 			})
-			.toggleStyle(CategoryToggleStyle())
+			.toggleStyle(CategoryToggleStyle{
+				selectedSpecies = .cat
+			})
 			
-			Toggle(isOn: .constant(true), label: {
+			Toggle(isOn: .constant(selectedSpecies == .dog), label: {
 				Text("Dogs")
 			})
-			.toggleStyle(CategoryToggleStyle())
+			.toggleStyle(CategoryToggleStyle{
+				selectedSpecies = .dog
+			})
 			
-			Toggle(isOn: .constant(false), label: {
+			Toggle(isOn: .constant(selectedSpecies == .bird), label: {
 				Text("Birds")
 			})
-			.toggleStyle(CategoryToggleStyle())
+			.toggleStyle(CategoryToggleStyle{
+				selectedSpecies = .bird
+			})
 			
-			Toggle(isOn: .constant(false), label: {
+			Toggle(isOn: .constant(selectedSpecies == .other), label: {
 				Text("Other")
 			})
-			.toggleStyle(CategoryToggleStyle())
+			.toggleStyle(CategoryToggleStyle{
+				selectedSpecies = .other
+			})
 		}
 		.padding(.leading, 25)
 	}
 }
 
 struct FiltersView_Previews: PreviewProvider {
-    static var previews: some View {
-        FiltersView()
-    }
+	static var previews: some View {
+		FiltersView()
+	}
 }

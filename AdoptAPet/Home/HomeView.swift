@@ -20,8 +20,9 @@ struct HomeView: View {
 						FiltersView()
 					}
 					
-					ForEach(ModelData.pets.indices) { i in
-						let pet = ModelData.pets[i]
+					let data = ModelData.getPets(species: .dog)
+					ForEach(data.indices) { i in
+						let pet = data[i]
 						NavigationLink(destination:DetailsView(pet: pet)) {
 							PetListItemView(
 								petImageName: pet.picture,

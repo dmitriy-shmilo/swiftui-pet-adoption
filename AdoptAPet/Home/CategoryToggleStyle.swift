@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoryToggleStyle: ToggleStyle {
 	let isDisabled: Bool
+	let onTap: (() -> Void)?
 	
 	func makeBody(configuration: Self.Configuration) -> some View {
 		let backgroundColor = configuration.isOn
@@ -39,7 +40,11 @@ struct CategoryToggleStyle: ToggleStyle {
 			.padding(.vertical, 12)
 			.onTapGesture {
 				if !isDisabled {
-					configuration.isOn.toggle()
+					if onTap != nil {
+						onTap!()
+					} else {
+						configuration.isOn.toggle()
+					}
 				}
 			}
 			.animation(.easeIn.speed(2.0))
@@ -49,5 +54,11 @@ struct CategoryToggleStyle: ToggleStyle {
 extension CategoryToggleStyle {
 	init() {
 		isDisabled = false
+		onTap = nil
+	}
+	
+	init(onTap: @escaping () -> Void) {
+		isDisabled = false
+		self.onTap = onTap
 	}
 }
