@@ -12,6 +12,7 @@ struct ModelData {
 		.init(
 			id: 1,
 			name: "Boots",
+			species: .dog,
 			breed: "Probably Maltese",
 			gender: .male,
 			location: Location(lat:10.0, lon: 10.0),
@@ -23,6 +24,7 @@ struct ModelData {
 		.init(
 			id: 2,
 			name: "Peach",
+			species: .dog,
 			breed: "No Idea",
 			gender: .female,
 			location: Location(lat:10.0, lon: 10.0),
@@ -32,4 +34,8 @@ struct ModelData {
 			pictures: []
 		),
 	]
+	
+	static func getPets(species: Species) -> [Pet] {
+		pets.filter { $0.species == species }
+	}
 }

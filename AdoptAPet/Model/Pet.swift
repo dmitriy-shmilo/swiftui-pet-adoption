@@ -10,6 +10,7 @@ import Foundation
 struct Pet: Hashable, Identifiable {
 	let id: Int
 	let name: String
+	let species: Species
 	let breed: String
 	let gender: Gender
 	let location: Location
