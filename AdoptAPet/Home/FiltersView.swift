@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FiltersView: View {
-	@State var selectedSpecies = Species.dog
+	@Binding var selectedSpecies:Species
 	
 	var body: some View {
 		HStack(spacing: 25) {
@@ -52,6 +52,6 @@ struct FiltersView: View {
 
 struct FiltersView_Previews: PreviewProvider {
 	static var previews: some View {
-		FiltersView()
+		FiltersView(selectedSpecies: .constant(.dog))
 	}
 }
