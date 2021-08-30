@@ -12,6 +12,7 @@ struct DetailsView: View {
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 	@State var isEmttingConfetti = false
 	@State var isShowingConfirmation = false
+	@State var isSharing = false
 	
 	func backgroundHeight(proxy: GeometryProxy) -> CGFloat {
 		return max(0, 400 + proxy.frame(in: .global).minY)
@@ -60,6 +61,19 @@ struct DetailsView: View {
 					}
 					.padding()
 					Spacer()
+					Button(action: {
+						isSharing.toggle()
+					}) {
+						Image(systemName: "square.and.arrow.up.fill")
+							.resizable()
+							.foregroundColor(.white)
+							.scaledToFit()
+							.frame(width: 30, height: 30)
+					}
+					.padding()
+					.sheet(isPresented: $isSharing) {
+						ActivityView(title: pet.name, url: "https://github.com/dmitriy-shmilo/swiftui-pet-adoption", image: UIImage(named: pet.picture))
+					}
 				}
 				Spacer()
 				Button(action: {
