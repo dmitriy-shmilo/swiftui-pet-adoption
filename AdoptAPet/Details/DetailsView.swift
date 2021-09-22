@@ -9,18 +9,13 @@ import SwiftUI
 
 struct DetailsView: View {
 	let pet: Pet
-	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-	@State var isEmittingConfetti = false
-	@State var isShowingConfirmation = false
-	@State var isSharing = false
 	
-	func backgroundHeight(proxy: GeometryProxy) -> CGFloat {
-		return max(0, 400 + proxy.frame(in: .global).minY)
-	}
+	@Environment(\.presentationMode)
+	private var presentationMode: Binding<PresentationMode>
 	
-	func backgroundOffset(proxy: GeometryProxy) -> CGFloat {
-		return -proxy.frame(in: .global).minY
-	}
+	@State private var isEmittingConfetti = false
+	@State private var isShowingConfirmation = false
+	@State private var isSharing = false
 	
 	var body: some View {
 		ZStack {
@@ -44,8 +39,8 @@ struct DetailsView: View {
 			
 			VStack {
 				Spacer()
-					ParticleEmitterView(isEmitting: $isEmittingConfetti)
-						.frame(width: 100, height: 30)
+				ParticleEmitterView(isEmitting: $isEmittingConfetti)
+					.frame(width: 100, height: 30)
 			}
 			
 			VStack {
@@ -98,6 +93,14 @@ struct DetailsView: View {
 				  message: Text("\(pet.name) is on \(pet.gender == .female ? "her" : "his") way!"))
 		}
 		.navigationBarHidden(true)
+	}
+	
+	private func backgroundHeight(proxy: GeometryProxy) -> CGFloat {
+		return max(0, 400 + proxy.frame(in: .global).minY)
+	}
+	
+	private func backgroundOffset(proxy: GeometryProxy) -> CGFloat {
+		return -proxy.frame(in: .global).minY
 	}
 }
 

@@ -39,7 +39,7 @@ struct ToolbarView: View {
 }
 
 struct ToolbarView_Previews: PreviewProvider {
-    static var previews: some View {
-        ToolbarView()
-    }
+	static var previews: some View {
+		ToolbarView()
+	}
 }

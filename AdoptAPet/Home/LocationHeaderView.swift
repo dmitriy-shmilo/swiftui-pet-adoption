@@ -40,7 +40,7 @@ struct LocationHeaderView: View {
 }
 
 struct LocationHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationHeaderView()
-    }
+	static var previews: some View {
+		LocationHeaderView()
+	}
 }

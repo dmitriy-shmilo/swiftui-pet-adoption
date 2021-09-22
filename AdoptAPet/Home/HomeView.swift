@@ -13,7 +13,7 @@ struct HomeView: View {
 	var body: some View {
 		NavigationView {
 			ScrollView {
-				VStack {
+				LazyVStack {
 					ToolbarView()
 					
 					LocationHeaderView()
@@ -41,7 +41,7 @@ struct HomeView: View {
 							.foregroundColor(.secondaryFont)
 							.font(.system(size: 18))
 							.multilineTextAlignment(.center)
-							.frame(height: 100) // TODO: find out why this text collapses to a single line unless given a frame
+							.lineLimit(2)
 					}
 				}
 			}

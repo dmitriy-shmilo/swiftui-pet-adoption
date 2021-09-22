@@ -53,7 +53,7 @@ struct PetListItemView: View {
 }
 
 struct PetListItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        PetListItemView(petImageName:"puppy1", mapColor: Color.red.opacity(0.3))
-    }
+	static var previews: some View {
+		PetListItemView(petImageName:"puppy1", mapColor: Color.red.opacity(0.3))
+	}
 }

@@ -40,8 +40,8 @@ struct CategoryToggleStyle: ToggleStyle {
 			.padding(.vertical, 12)
 			.onTapGesture {
 				if !isDisabled {
-					if onTap != nil {
-						onTap!()
+					if let onTap = onTap {
+						onTap()
 					} else {
 						configuration.isOn.toggle()
 					}
