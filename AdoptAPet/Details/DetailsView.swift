@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailsView: View {
 	let pet: Pet
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-	@State var isEmttingConfetti = false
+	@State var isEmittingConfetti = false
 	@State var isShowingConfirmation = false
 	@State var isSharing = false
 	
@@ -44,7 +44,7 @@ struct DetailsView: View {
 			
 			VStack {
 				Spacer()
-					ParticleEmitterView(isEmitting: $isEmttingConfetti)
+					ParticleEmitterView(isEmitting: $isEmottingConfetti)
 						.frame(width: 100, height: 30)
 			}
 			
@@ -77,11 +77,11 @@ struct DetailsView: View {
 				}
 				Spacer()
 				Button(action: {
-					isEmttingConfetti = true
+					isEmittingConfetti = true
 					isShowingConfirmation = true
 					DispatchQueue.main.asyncAfter(
 						deadline: .now() + 0.5) {
-						isEmttingConfetti = false
+						isEmittingConfetti = false
 					}
 				}) {
 					Text("Adopt Now")
