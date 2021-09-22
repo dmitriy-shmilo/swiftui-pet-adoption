@@ -44,7 +44,7 @@ struct DetailsView: View {
 			
 			VStack {
 				Spacer()
-					ParticleEmitterView(isEmitting: $isEmottingConfetti)
+					ParticleEmitterView(isEmitting: $isEmittingConfetti)
 						.frame(width: 100, height: 30)
 			}
 			
